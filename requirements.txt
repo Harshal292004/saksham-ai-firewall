@@ -6,3 +6,4 @@ flask
 matplotlib 
 seaborn
 scikit-learn
+tensorflow
