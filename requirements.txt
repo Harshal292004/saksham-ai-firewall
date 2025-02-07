@@ -1,4 +1,8 @@
 joblib
 scapy
 pandas 
-numpy
+numpy 
+flask 
+matplotlib 
+seaborn
+scikit-learn
