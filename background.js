@@ -23,7 +23,7 @@ chrome.webRequest.onBeforeRequest.addListener(
       };
   
       // Send the payload to your Flask firewall server.
-      fetch("http://your-firewall-server-address:5000/analyze", {
+      fetch("http://localhost:5000/analyze", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -43,7 +43,6 @@ chrome.webRequest.onBeforeRequest.addListener(
       })
       .catch(err => console.error("Firewall server error:", err));
   
-      // Return empty object; note that you cannot cancel the request asynchronously.
       return {};
     },
     {urls: ["<all_urls>"]},
