@@ -2,10 +2,13 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 import numpy as np
+from flask_cors import CORS
 
+app = Flask(__name__)
+CORS(app)
 # Load the trained model (assumed to be a binary classifier: 0=benign, 1=malicious)
 try:
-    model = joblib.load("cic_scaler.pkl")
+    model = joblib.load("cic_trained_model.h5")
 except Exception as e:
     raise RuntimeError("Could not load firewall model: " + str(e))
 
@@ -40,7 +43,7 @@ FEATURE_COLUMNS = [
     "down_up_ratio"
 ]
 
-app = Flask(__name__)
+
 
 def extract_features(data):
     """
@@ -119,3 +122,5 @@ def get_blocked_ips():
 if __name__ == '__main__':
     # Run the Flask server; in production, use a production-ready server.
     app.run(host='0.0.0.0', port=5000)
+
+
