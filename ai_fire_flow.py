@@ -5,7 +5,7 @@ import numpy as np
 
 # Load the trained model (assumed to be a binary classifier: 0=benign, 1=malicious)
 try:
-    model = joblib.load("firewall.pkl")
+    model = joblib.load("cic_scaler.pkl")
 except Exception as e:
     raise RuntimeError("Could not load firewall model: " + str(e))
 
