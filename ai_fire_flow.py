@@ -3,12 +3,14 @@ import joblib
 import pandas as pd
 import numpy as np
 from flask_cors import CORS
+from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 CORS(app)
+print(joblib.__version__)
 # Load the trained model (assumed to be a binary classifier: 0=benign, 1=malicious)
 try:
-    model = joblib.load("cic_trained_model.h5")
+    model = load_model("cic_trained_model.h5")
 except Exception as e:
     raise RuntimeError("Could not load firewall model: " + str(e))
 

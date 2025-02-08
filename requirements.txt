@@ -1,4 +1,4 @@
-joblib
+joblib==1.2.0
 scapy
 pandas 
 numpy 
@@ -8,3 +8,4 @@ seaborn
 scikit-learn
 tensorflow
 gunicorn
+flask_cors
